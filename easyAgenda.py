@@ -33,4 +33,5 @@ def make_ics():
         f.writelines(calendar)
 
 if __name__ == "__main__":
-    read_txt('test.txt')
+    read_txt('agenda.txt')
+    print("Success")
