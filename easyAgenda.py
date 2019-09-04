@@ -9,10 +9,11 @@ def read_txt(filepath):
 		if len(line) == 11:
 			date = line.replace('.', '')[:-1]
 		else:
-			start_time = line[0:5].replace(':', '')
-			end_time = line[6:11].replace(':', '')
-			event_name = line[12:-1]
-			add_event(event_name, date, start_time, end_time)
+			if line[0] not in ['#', '-', '--', '//', '/']:
+				start_time = line[0:5].replace(':', '')
+				end_time = line[6:11].replace(':', '')
+				event_name = line[12:-1]
+				add_event(event_name, date, start_time, end_time)
 	make_ics()
 
 def add_event(event_name, date, start_time, end_time):
